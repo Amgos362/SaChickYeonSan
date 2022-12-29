@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <title>사칙연산 for fun!!</title>
+    <script>
+
+        function newquestion() {
+            m = Math.random()*numberlengthf()
+            n = Math.random()*numberlengths()
+            mf = Math.floor(m)
+            nf = Math.floor(n)
+            res = eval(mf+operate()+nf)
+            ques = mf + operate()  + nf
+            var question = document.getElementById("question")
+            question.value = ques
+        }
+        
+        
+        function check_only_onebox1(element) {
+            const checkboxes = document.getElementsByName("numberf");
+            checkboxes.forEach((cb) => {
+                cb.checked = false;
+            })
+            element.checked = true
+        }
+
+        function check_only_onebox2(element) {
+            const checkboxes = document.getElementsByName("numbers");
+            checkboxes.forEach((cb) => {
+                cb.checked = false;
+            })
+            element.checked = true
+        }
+
+        function check_only_onebox3(element){
+            const checkboxes = document.getElementsByName("deal")
+            checkboxes.forEach((cb) => {
+                cb.checked = false;
+            })
+            element.checked = true
+        }
+
+        function operate() {
+            plus = document.getElementById("deal0")
+            minus = document.getElementById("deal1")
+            multiplies = document.getElementById("deal2")
+
+            if(plus.checked == true && minus.checked == false && multiplies.checked == false){
+                return "+"
+            }else if(minus.checked == true && plus.checked == false && multiplies.checked == false){
+                return "-"
+            }else if(multiplies.checked == true && plus.checked == false && minus.checked == false){
+                return "*"
+            }
+        }
+
+        function numberlengthf() {
+            numlenf0 = document.getElementById('numberf0')
+            numlenf1 = document.getElementById('numberf1')
+            numlenf2 = document.getElementById('numberf2')
+            numlenf3 = document.getElementById('numberf3')
+            if(numlenf0.checked == true){
+                return 10
+            }else if(numlenf1.checked == true){
+                return 100
+            }else if(numlenf2.checked == true){
+                return 1000
+            }else if(numlenf3.checked == true){
+                return 10000
+            }
+
+        }
+
+        function numberlengths() {
+            numlens0 = document.getElementById('numbers0')
+            numlens1 = document.getElementById('numbers1')
+            numlens2 = document.getElementById('numbers2')
+            numlens3 = document.getElementById('numbers3')
+            if(numlens0.checked == true){
+                return 10
+            }else if(numlens1.checked == true){
+                return 100
+            }else if(numlens2.checked == true){
+                return 1000
+            }else if(numlens3.checked == true){
+                return 10000
+            }
+
+        }
+
+        function is_correct(box) {
+            let answer = document.getElementById("answer");
+            let hope = document.getElementById("hopetrue")
+            if(answer.value == res){
+                hope.value = "true"
+            }else {hope.value = "false"}
+            
+        }
+    </script>
+</head>
+<body>
+<h3>사칙연산 문제가 나오는 곳</h3>
+<hr>
+<legend>첫 번째 수 범위 선택하기</legend>
+<div>
+    <ul class="select_list_wrap" aria-describedby="notice2">
+        <li class="select_item">
+            <input type="checkbox" name="numberf" id="numberf0" class="checkbox_input" value='10' onclick="check_only_onebox1(this); numberlengthf()">
+            <label for="number0" class="checkbox_label">한자리까지</label>
+        </li>
+        <li class="select_item">
+            <input type="checkbox" name="numberf" id="numberf1" class="checkbox_input" value='100' onclick="check_only_onebox1(this); numberlengthf()">
+            <label for="number1" class="checkbox_label">두자리까지</label>
+        </li>
+        <li class="select_item">
+            <input type="checkbox" name="numberf" id="numberf2" class="checkbox_input" value='1000' onclick="check_only_onebox1(this); numberlengthf()">
+            <label for="number2" class="checkbox_label">세자리까지</label>
+        </li>
+        <li class="select_item">
+            <input type="checkbox" name="numberf" id="numberf3" class="checkbox_input" value='10000' onclick="check_only_onebox1(this); numberlengthf()">
+            <label for="number3" class="checkbox_label">네자리까지</label>
+        </li>
+    </ul>
+</div>
+<hr>
+<legend>두 번째 수 범위 선택하기</legend>
+<div>
+    <ul class="select_list_wrap" aria-describedby="notice2">
+        <li class="select_item">
+            <input type="checkbox" name="numbers" id="numbers0" class="checkbox_input" value='10' onclick="check_only_onebox2(this); numberlengths()">
+            <label for="number0" class="checkbox_label">한자리까지</label>
+        </li>
+        <li class="select_item">
+            <input type="checkbox" name="numbers" id="numbers1" class="checkbox_input" value='100' onclick="check_only_onebox2(this); numberlengths()">
+            <label for="number1" class="checkbox_label">두자리까지</label>
+        </li>
+        <li class="select_item">
+            <input type="checkbox" name="numbers" id="numbers2" class="checkbox_input" value='1000' onclick="check_only_onebox2(this); numberlengths()">
+            <label for="number2" class="checkbox_label">세자리까지</label>
+        </li>
+        <li class="select_item">
+            <input type="checkbox" name="numbers" id="numbers3" class="checkbox_input" value='10000' onclick="check_only_onebox2(this); numberlengths()">
+            <label for="number3" class="checkbox_label">네자리까지</label>
+        </li>
+    </ul>
+</div>
+
+<hr>
+<legend>원하는 연산 선택</legend>
+<div>
+    <ul class="select_list_wrap" aria-describedby="notice2">
+        <li class="select_item">
+            <input type="checkbox" name="deal" id="deal0" class="checkbox_input" value="+" onclick="operate(this);check_only_onebox3(this)">
+            <label for="deal0" class="checkbox_label">덧셈</label>
+        </li>
+        <li class="select_item">
+            <input type="checkbox" name="deal" id="deal1" class="checkbox_input" value="-" onclick="operate(this);check_only_onebox3(this)">
+            <label for="deal0" class="checkbox_label">뺄셈</label>
+        </li>
+        <li class="select_item">
+            <input type="checkbox" name="deal" id="deal2" class="checkbox_input" value="*" onclick="operate(this);check_only_onebox3(this)" >
+            <label for="deal0" class="checkbox_label">곱셈</label>
+        </li>
+    </ul>
+</div>
+<hr>
+
+<input type="button" value="다음 문제" id="next" onclick="newquestion()"><br>
+<input type="text" id="question"><br><br>
+<input type="text" id="answer">
+<input type="button" value="제출" id="submit" onclick="is_correct(this)"><br><br>
+<input type="text" id="hopetrue">
+</body>
+</html>

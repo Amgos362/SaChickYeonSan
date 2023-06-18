@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #6d6565;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#more-info-and-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#more-links {
+    background-color: rgb(243, 196, 109); /* 원하는 배경색으로 설정하세요. */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* 텍스트를 중앙에 위치시키기 위해 추가한 부분입니다. */
+}
+
+#more-info {
+    background-color: rgb(255, 127, 234); /* 원하는 배경색으로 설정하세요. */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* 텍스트를 중앙에 위치시키기 위해 추가한 부분입니다. */
+}
+
+
+h1 {
+    background-color: rgb(244, 244, 126);
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 50px;
+    text-align: center;
+    width: 50%;
+}
+
+#options, #calculator, #quiz {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    width: 50%;
+    color: white;
+}
+#options, #quiz {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    background-image: url('chalkboard.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat; /* 배경 이미지를 반복하지 않습니다 */
+}
+
+#options label, #quiz label {
+    margin: 5px;
+}
+
+input, select, button {
+    margin: 5px;
+}
+
+#result {
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #1fefeb;
+}
+
+#result.X {
+    color: #f44336;
+}
